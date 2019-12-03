@@ -7,17 +7,38 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "ES5",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
+      "es2017",
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "module-manager": [
+        "dist/module-manager"
+      ],
+      "module-manager/*": [
+        "dist/module-manager/*"
+      ],
+      "module-a": [
+        "dist/module-a"
+      ],
+      "module-a/*": [
+        "dist/module-a/*"
+      ],
+      "module-remote": [
+        "dist/module-remote"
+      ],
+      "module-remote/*": [
+        "dist/module-remote/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

@@ -41,15 +41,21 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/systemjs/dist/s.js",
+              "node_modules/systemjs/dist/extras/amd.js",
+              "node_modules/systemjs/dist/extras/named-register.js",
+              "node_modules/systemjs/dist/extras/use-default.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -112,6 +118,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -143,6 +150,112 @@
           }
         }
       }
-    }},
+    },
+    "module-manager": {
+      "projectType": "library",
+      "root": "projects/module-manager",
+      "sourceRoot": "projects/module-manager/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/module-manager/tsconfig.lib.json",
+            "project": "projects/module-manager/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/module-manager/src/test.ts",
+            "tsConfig": "projects/module-manager/tsconfig.spec.json",
+            "karmaConfig": "projects/module-manager/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/module-manager/tsconfig.lib.json",
+              "projects/module-manager/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "module-a": {
+      "projectType": "library",
+      "root": "projects/module-a",
+      "sourceRoot": "projects/module-a/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/module-a/tsconfig.lib.json",
+            "project": "projects/module-a/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/module-a/src/test.ts",
+            "tsConfig": "projects/module-a/tsconfig.spec.json",
+            "karmaConfig": "projects/module-a/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/module-a/tsconfig.lib.json",
+              "projects/module-a/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "module-remote": {
+      "projectType": "library",
+      "root": "projects/module-remote",
+      "sourceRoot": "projects/module-remote/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/module-remote/tsconfig.lib.json",
+            "project": "projects/module-remote/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/module-remote/src/test.ts",
+            "tsConfig": "projects/module-remote/tsconfig.spec.json",
+            "karmaConfig": "projects/module-remote/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/module-remote/tsconfig.lib.json",
+              "projects/module-remote/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "coeus-dynamic-module"
 }

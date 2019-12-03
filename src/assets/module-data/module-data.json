@@ -1,0 +1,10 @@
+[
+    {
+        "path": "assets/modules/module-a/module-a.umd.min.js",
+        "isLocal": true
+    },
+    {
+        "path": "assets/modules/module-remote/module-remote.umd.min.js",
+        "isLocal": false
+    }
+]

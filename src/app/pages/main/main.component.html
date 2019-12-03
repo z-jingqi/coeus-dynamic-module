@@ -1,0 +1,6 @@
+<div>
+    <p>main works!</p>
+    <button mat-raised-button (click)="loadModule()">加载ModuleA</button>
+    <a *ngFor="let route of moduleRouterService.routes" (click)="nav(route.path)">{{route.path}}</a>
+    <router-outlet></router-outlet>
+</div>
